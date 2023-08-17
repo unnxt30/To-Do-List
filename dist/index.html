@@ -3,10 +3,10 @@
 <head>
     <title>Stuff</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Josefin+Sans:wght@300&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">  -->
     <link href="https://fonts.googleapis.com/css2?family=Handjet&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <link rel="icon" href="img/icon.png">
+    <script src="main.js" defer></script>
 </head>
 <body>
     <div id="container">
@@ -22,8 +22,23 @@
                 <button id="add_project">+ Add</button>
             </div>
         </div>
-        <div class="display"></div>
+        <div class="display">
+            <div class="displayHeading">
+                <div id="pageHeading">Inbox</div>
+                <button id="addTask">+</button>
+            </div>
+            <div id="taskInfo" action="">
+                <div class="task_popup">
+                    <input type="text" id="title" name="title" placeholder="Title">
+                    <input type="date" id="task_date" name="date">
+                    <div id="popup_buttons">
+                        <button id="add"><img src="img/confirm.avif" height="20px" width="20px"></button>
+                        <button id="cancel"><img src="img/cancel.avif" height="20px" width="20px"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
+    <div class="footer"><a href="https://github.com/unnxt30" target="_blank">unnxt30</a></div>
 </body>
 </html>
