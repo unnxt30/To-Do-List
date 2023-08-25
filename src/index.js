@@ -1,7 +1,6 @@
 import tasks from "./tasks";
-import { isToday } from 'date-fns';
-
-import { todayPage, weekPage, inboxPage, loadTodayPage, loadWeekPage, loadinboxPage } from "./nav";
+import { isEqual, format, toDate } from 'date-fns';
+import { todayPage, weekPage, inboxPage, loadTodayPage, loadWeekPage, loadInboxPage } from "./nav";
 
 const display = document.querySelector(".display");
 const task_form = document.getElementById("taskInfo");
@@ -17,6 +16,8 @@ cancelBtn.onclick = () => {
     task_form.classList.remove('active');
 }
 
+loadInboxPage()
+
 function displayTask(fooTask)
 {
     const taskContainer = document.createElement('div');
@@ -28,7 +29,7 @@ function displayTask(fooTask)
 
     const date = document.createElement('div');
     date.setAttribute('id', 'date');
-    date.innerHTML = fooTask.getDate();
+    date.innerHTML = fooTask.getFormattedDate();
 
     const status = document.createElement('div');
     status.setAttribute('id', 'status');
@@ -57,15 +58,40 @@ addTaskBtn.onclick = () => {
     
     const task_name = document.querySelector('#title').value;
     const task_date = document.querySelector('#task_date').value;
+    console.log(task_date); 
+    const todayDate = new Date();
+    const today = format(todayDate, 'yyyy-MM-dd');
+
+    console.log(today);
     if(task_name == ""){
         alert("Please fill in a Title.");
         return;
     }
 
     const thisTask = new tasks(task_name, task_date);
-    display.appendChild(displayTask(thisTask));
+    inboxPage.appendChild(displayTask(thisTask));
+
+    if(task_date === today){
+        todayPage.appendChild(displayTask(thisTask));
+    }
+    else{
+        weekPage.appendChild(displayTask(thisTask));
+    }
     task_form.classList.remove('active');
 }
 
+const inboxBtn = document.querySelector('#inbox');
+const todayBtn = document.querySelector('#today');
+const weekBtn = document.querySelector('#week')
 
+inboxBtn.onclick = () => {
+    loadInboxPage()
+}
 
+todayBtn.onclick = () => {
+    loadTodayPage()
+}
+
+weekBtn.onclick = () => {
+    loadWeekPage();
+}

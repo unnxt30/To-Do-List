@@ -11,9 +11,13 @@ export default class tasks{
         return this.title;
     }
 
-    getDate(){
+    getFormattedDate(){
         const foo = new Date(this.dueDate);
         return format(foo, 'MMMM d, yyyy'); 
+    }
+
+    getDate(){
+        return this.dueDate;
     }
 
 }

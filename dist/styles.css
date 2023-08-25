@@ -139,10 +139,29 @@ body{
     display: flex;
     flex-direction: column;
     padding: 50px;
-    width: 100%;
+    width: 100%; 
     gap: 20px;
 }
 
+.weekPage.active, .todayPage.active, .inboxPage.active{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    /* width: 100%;  */
+    gap: 20px;
+}
+
+.weekPage, .todayPage, .inboxPage{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    /* width: 100%; */
+    gap: 20px;
+}
+
+.weekPage, .todayPage, .inboxPage{
+    display: none;
+}
 .task_popup{
 	display:flex;
 	gap: 40px;
@@ -197,7 +216,7 @@ body{
 {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-between      ;
 	background-color: #f2f2f2;
 	padding: 10px;
 	align-items: center;
